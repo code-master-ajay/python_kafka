@@ -1,11 +1,11 @@
-from confluent_kafka import Producer, Consumer
-import random
+from confluent_kafka import Consumer
 
 c = Consumer({'bootstrap.servers': 'localhost:9092', 'group.id': 'mygroup'})
 c.subscribe(['mytopic'])
 
 while True:
     msg = c.poll(1.0)
+    
 
     if msg is None:
         continue

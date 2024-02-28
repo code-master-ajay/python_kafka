@@ -13,10 +13,11 @@ def generate_stock_data(symbol, start_price, num_ticks, interval_seconds=1):
 
         # Update timestamp
         timestamp += timedelta(seconds=interval_seconds)
+        millisecs = int(timestamp.timestamp() * 1000)
         time.sleep(1)
         yield {
             'price': current_price,
-            'timestamp': timestamp,
+            'timestamp': millisecs,
             'symbol': symbol
         }
 

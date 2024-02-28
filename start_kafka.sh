@@ -1,7 +1,11 @@
 #!/bin/bash
 
+# load environment variables
+. $(pwd)/.env_file
+
+
 # go to kafka directory
-cd /home/tops/kafka_2.12-3.6.1
+cd $KAFKA_PATH
 
 # stop any running kafka broker
 bin/kafka-server-stop.sh
